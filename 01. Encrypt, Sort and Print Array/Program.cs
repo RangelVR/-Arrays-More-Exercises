@@ -14,9 +14,9 @@ namespace _01._Encrypt__Sort_and_Print_Array
             {
                 string inputString = Console.ReadLine();
                 int sum = 0;
-                foreach (var letter in inputString)
+                foreach (var ch in inputString)
                 {
-                    switch (letter)
+                    switch (ch)
                     {
                         case 'a':
                         case 'e':
@@ -28,10 +28,10 @@ namespace _01._Encrypt__Sort_and_Print_Array
                         case 'I':
                         case 'O':
                         case 'U':
-                            sum += letter * inputString.Length;
+                            sum += ch * inputString.Length;
                             break;
                         default:
-                            sum += letter / inputString.Length;
+                            sum += ch / inputString.Length;
                             break;
                     }
                 }
@@ -41,8 +41,6 @@ namespace _01._Encrypt__Sort_and_Print_Array
             {
                 Console.WriteLine(item);
             }
-            
-            
             //Array.Sort(output);
             //foreach (var item in output)
             //{
