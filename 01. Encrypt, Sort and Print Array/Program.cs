@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 
 namespace _01._Encrypt__Sort_and_Print_Array
@@ -14,7 +14,6 @@ namespace _01._Encrypt__Sort_and_Print_Array
             {
                 string inputString = Console.ReadLine();
                 int sum = 0;
-
                 foreach (var letter in inputString)
                 {
                     switch (letter)
@@ -38,15 +37,18 @@ namespace _01._Encrypt__Sort_and_Print_Array
                 }
                 output[i] = sum;
             }
-            Array.Sort(output);
-            foreach (var item in output)
+            foreach (var item in output.OrderBy(x => x))
             {
                 Console.WriteLine(item);
             }
-            //foreach (var item in output.OrderBy(x => x))
+            
+            
+            //Array.Sort(output);
+            //foreach (var item in output)
             //{
             //    Console.WriteLine(item);
             //}
+
         }
     }
 }
