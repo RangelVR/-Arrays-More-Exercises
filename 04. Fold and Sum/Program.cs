@@ -1,54 +1,28 @@
-﻿using System;
+using System;
 using System.Linq;
 
-namespace _04._Fold_and_Sum
+namespace _03._Recursive_Fibonacci
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int[] inputArr = Console.ReadLine()
-                .Split(" ", StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToArray();
-            int[] sumArr = new int[inputArr.Length / 2];
+            int[] mainArr = Console.ReadLine().Split().Select(int.Parse).ToArray();
+            int[] arr1 = new int[mainArr.Length / 2];
+            int[] arr2 = new int[mainArr.Length / 2];
+            int[] result = new int[mainArr.Length / 2];
 
-            if (inputArr.Length > 4)
+            for (int i = 0; i < mainArr.Length / 2; i++)
             {
-                int[] arrLefRight = new int[inputArr.Length / 2];
-                int[] arrMidle = new int[inputArr.Length / 2];
-                
-                int stopIndex1 = inputArr.Length / 4;
-                int stopIndex2 = inputArr.Length - stopIndex1;
-                int counter1 = stopIndex1 - 1;
-                int counter2 = stopIndex1;
-
-                for (int i = 0; i < stopIndex1 ; i++)
-                {
-                    arrLefRight[counter1] = inputArr[i];
-                    counter1--;
-                }
-                for (int j = inputArr.Length - 1; j >= stopIndex2; j--)
-                {
-                    arrLefRight[counter2] = inputArr[j];
-                    counter2++;
-                }
-                for (int i = 0; i <= arrMidle.Length -1; i++)
-                {
-                    arrMidle[i] = inputArr[stopIndex1];
-                    stopIndex1++;
-                }
-                for (int i = 0; i < sumArr.Length; i++)
-                {
-                    sumArr[i] = arrLefRight[i] + arrMidle[i];
-                }
+                arr1[i] = mainArr[i];
+                arr2[i] = mainArr[(mainArr.Length / 2) + i];
             }
-            else
+            for (int k = 0; k < arr1.Length / 2; k++)
             {
-                sumArr[0] = inputArr[0] + inputArr[1];
-                sumArr[1] = inputArr[2] + inputArr[3];
+                result[k] = arr1[((arr1.Length / 2) - 1) - k] + arr1[(arr1.Length / 2) + k];
+                result[(arr1.Length / 2) + k] = arr2[k] + arr2[(arr2.Length - 1) - k];
             }
-            Console.WriteLine(string.Join(" ", sumArr));
+            Console.WriteLine(string.Join(" ", result));
         }
     }
 }
