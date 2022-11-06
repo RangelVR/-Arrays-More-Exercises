@@ -1,21 +1,22 @@
-﻿using System;
+using System;
+using System.Linq;
 
-namespace _03._Recursive_Fibonacci
+namespace LongestIncreasingSubsequence
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            int fibonacciNum = int.Parse(Console.ReadLine());
-            long[] fibonacciSequence = new long[50];
-            fibonacciSequence[0] = 1;
-            fibonacciSequence[1] = 1;
+            int fibunacciNum = int.Parse(Console.ReadLine());
+            long[] result = new long[50];
+            result[0] = 1;
+            result[1] = 1;
 
-            for (int i = 2; i < fibonacciNum; i++)
+            for (int i = 2; i < fibunacciNum; i++)
             {
-                fibonacciSequence[i] = fibonacciSequence[i - 1] + fibonacciSequence[i - 2];
+                result[i] = result[i - 1] + result[i - 2];
             }
-            Console.WriteLine(fibonacciSequence[fibonacciNum - 1]);
+            Console.WriteLine(result[fibunacciNum - 1]);
         }
     }
 }
