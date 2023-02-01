@@ -1,10 +1,7 @@
-using System.Diagnostics.Metrics;
 
 int[] mainArr = Console.ReadLine().Split().Select(int.Parse).ToArray();
 int[] leftHalfMain = new int[mainArr.Length / 2];
 int[] rightHalfMain = new int[mainArr.Length / 2];
-int[] resultLeft = new int [leftHalfMain.Length / 2];
-int[] resultRight = new int [rightHalfMain.Length / 2];
 int middleMain = mainArr.Length / 2;
 
 for (int i = 0; i < middleMain; i++)
@@ -13,6 +10,8 @@ for (int i = 0; i < middleMain; i++)
     rightHalfMain[i] = mainArr[i + middleMain];
 }
 
+int[] resultLeft = new int[leftHalfMain.Length / 2];
+int[] resultRight = new int[rightHalfMain.Length / 2];
 int lastIndex = leftHalfMain.Length - 1;
 
 for (int i = 0; i < leftHalfMain.Length / 2; i++)
